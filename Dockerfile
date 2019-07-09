@@ -3,9 +3,7 @@ FROM mhart/alpine-node:12
 ENV DOCKER_HOST tcp://docker:2375/
 ENV DOCKER_DRIVER overlay
 
-RUN apk upgrade --no-cache \
-    # Install common tools
-    && apk add --no-cache bash curl wget make git python \
+RUN apk add --no-cache bash curl wget make git python \
     gcc g+ linux-headers binutils-gold gnupg libstdc++ libgcc ca-certificates tar jq \
     # Install yq (it's not in apk packages)
     && curl -s https://api.github.com/repos/mikefarah/yq/releases/latest | \
