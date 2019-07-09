@@ -23,7 +23,6 @@ RUN apk upgrade --no-cache \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
     && mv kubectl /usr/local/bin/ \
     && chmod +x /usr/local/bin/kubectl \
-    && kubectl options \
     # Install kustomize
     && curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases/latest |\
     jq -re '.assets[] | select(.name|test("kustomize_.*_linux_amd64")) | .browser_download_url' | \
