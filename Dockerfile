@@ -1,7 +1,8 @@
 FROM mhart/alpine-node:12.9
 
 ENV DOCKER_HOST tcp://docker:2375/
-ENV DOCKER_DRIVER overlay
+ENV DOCKER_DRIVER overlay2
+ENV DOCKER_TLS_CERTDIR ''
 
 RUN apk upgrade --no-cache \
     # Install common tools
