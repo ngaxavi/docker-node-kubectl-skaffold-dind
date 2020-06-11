@@ -10,4 +10,6 @@ before_install:
 
 script:
   - docker build -t $DOCKER_REPO_SLUG:latest .
+  - docker build -t $DOCKER_REPO_SLUG:v$TRAVIS_BUILD_NUMBER
   - docker push $DOCKER_REPO_SLUG:latest
+  - docker push $DOCKER_REPO_SLUG:v$TRAVIS_BUILD_NUMBER
