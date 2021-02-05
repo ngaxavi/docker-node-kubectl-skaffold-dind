@@ -3,7 +3,7 @@ services:
   - docker
 
 env:
-  - DOCKER_REPO_SLUG=ngaxavi/node-kubectl-skaffold-dind
+  - DOCKER_REPO_SLUG="ngaxavi/node-kubectl-skaffold-dind"
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
