@@ -16,7 +16,7 @@ RUN apk upgrade --no-cache \
   && yq -V \
   # Install docker
   && [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf \
-  && curl -fL -o docker.tgz "https://download.docker.com/linux/static/stable/x86_64/docker-`curl -s https://api.github.com/repos/docker/docker-ce/releases/latest | jq -re .name`.tgz" \
+  && curl -fL -o docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$(curl -s https://api.github.com/repos/docker/docker-ce/releases/latest | jq -re .name).tgz \
   && tar --extract --file docker.tgz --strip-components 1 --directory /usr/local/bin/ \
   && rm docker.tgz \
   # Install kubectl
